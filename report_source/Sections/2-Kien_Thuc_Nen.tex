@@ -1,0 +1,108 @@
+\section{Cơ sở lý thuyết (Kiến thức nền)}
+
+\subsection{Giới thiệu về công cụ sử dụng thống kê}
+
+\subsubsection{Ngôn ngữ R}
+R là một công cụ rất mạnh cho học máy, thống kê và phân tích dữ liệu. Nó là một ngôn ngữ lập trình, có thể sử dụng trên bất kỳ hệ điều hành nào do tính chất độc lập nền tảng (\textit{platform-independent}). R có khả năng tích hợp với các ngôn ngữ khác như C, C++ và cho phép tương tác với nhiều nguồn dữ liệu cũng như các gói thống kê như SAS, SPSS.
+
+\subsubsection{Công cụ RStudio}
+RStudio là một môi trường phát triển tích hợp (IDE - Integrated Development Environment) dành riêng cho R. RStudio cung cấp giao diện trực quan và các chức năng thuận tiện để làm việc với R mà không cần chạy R trực tiếp.
+
+\subsection{Các khái niệm về thành phần và phương pháp sử dụng thống kê}
+
+\subsubsection{Biến định lượng}
+Biến định lượng là những biến có thể đo lường được bằng các con số và thực hiện các phép toán số học như cộng, trừ, nhân, chia. Biến định lượng cung cấp thông tin về "mức độ" hoặc "số lượng" của một đặc điểm cụ thể.
+
+\subsubsection{Phân phối chuẩn}
+
+\textbf{Khái niệm:}  
+Phân phối chuẩn, còn gọi là phân phối Gauss (theo tên nhà toán học Carl Friedrich Gauss), là một loại phân phối liên tục. Đặc điểm nổi bật của phân phối chuẩn là:
+\begin{itemize}
+    \item Đối xứng qua giá trị trung bình.
+    \item Có hình dạng chuông.
+    \item Các giá trị được phân bố đều xung quanh trung bình và giảm dần khi xa trung bình.
+\end{itemize}
+
+\subsubsection{ Kiến thức thống kê mô tả}
+
+\paragraph{Các chỉ số đo lường xu hướng tập trung:}
+\begin{itemize}
+    \item \textbf{Trung bình (Mean):} Là giá trị trung tâm của bộ dữ liệu, được tính bằng công thức:
+    \[
+    \text{Mean} = \frac{\sum x_i}{n}
+    \]
+    trong đó $x_i$ là các giá trị quan sát, $n$ là số lượng giá trị.
+    \item \textbf{Trung vị (Median):} Là giá trị nằm ở giữa khi các giá trị được sắp xếp theo thứ tự tăng dần.
+    \item \textbf{Mốt (Mode):} Là giá trị xuất hiện nhiều nhất trong bộ dữ liệu.
+\end{itemize}
+
+\paragraph{Các chỉ số đo lường sự phân tán}
+\begin{itemize}
+    \item \textbf{Phương sai (Variance):} Đo lường mức độ phân tán của dữ liệu xung quanh giá trị trung bình, được tính bằng công thức:
+    \[
+    \text{Variance} = \frac{\sum (x_i - \bar{x})^2}{n}
+    \]
+    \item \textbf{Độ lệch chuẩn (Standard Deviation):} Là căn bậc hai của phương sai:
+    \[
+    \text{SD} = \sqrt{\text{Variance}}
+    \]
+    \item \textbf{Khoảng (Range):} Là hiệu giữa giá trị lớn nhất và giá trị nhỏ nhất trong bộ dữ liệu.
+\end{itemize}
+
+\paragraph{Các chỉ số mô tả sự phân bố}
+\begin{itemize}
+    \item \textbf{Tứ phân vị (Quartiles):} Là các giá trị chia dữ liệu thành bốn phần bằng nhau.
+    \item \textbf{Khoảng tứ phân vị hay độ khoảng giữa (Interquartile Range - IQR):} Là khoảng cách giữa tứ phân vị thứ ba ($Q_3$) và tứ phân vị thứ nhất ($Q_1$), được tính bằng:
+    \[
+    \text{IQR} = Q_3 - Q_1
+    \]
+\end{itemize}
+
+IQR là một chỉ số quan trọng giúp xác định sự phân tán dữ liệu và phát hiện các giá trị ngoại lai (outliers). Các giá trị được coi là ngoại lai nếu nằm ngoài khoảng:
+\[
+[Q_1 - 1.5 \times \text{IQR}, Q_3 + 1.5 \times \text{IQR}]
+\]
+
+\paragraph{Biểu đồ sử dụng thống kê}
+\begin{itemize}
+    \item \textbf{Biểu đồ cột (Barplot):} Dùng so sánh các giá trị khác nhau.
+    \item \textbf{Biểu đồ hộp (Box plot):} Thể hiện các tứ phân vị và phát hiện giá trị ngoại lai.
+    \item \textbf{Biểu đồ Q-Q (Quantile-Quantile plot):} Kiểm tra dữ liệu có tuân theo phân phối chuẩn hay không.
+    \item \textbf{Biểu đồ corrplot}: thể hiện sự tương quan của dữ liệu. 
+\end{itemize}
+
+\subsection{Kiến thức thống kê suy luận (Tóm tắt)}
+
+\subsubsection{Kiểm định Kruskal-Wallis}  
+\begin{itemize}
+    \item \textbf{Định nghĩa:} Kiểm định phi tham số dùng để so sánh trung vị của \textbf{ba hoặc nhiều nhóm độc lập} nhằm xác định xem có sự khác biệt đáng kể giữa các nhóm khi dữ liệu không theo phân phối chuẩn.  
+    \item \textbf{Ý nghĩa:}  
+    \begin{itemize}
+        \item Phù hợp cho dữ liệu không chuẩn hoặc dữ liệu thứ bậc.  
+        \item Kiểm tra sự khác biệt trung vị giữa các nhóm độc lập.  
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Kiểm định Wilcoxon-Mann-Whitney}  
+\begin{itemize}
+    \item \textbf{Định nghĩa:} Kiểm định phi tham số dùng để so sánh \textbf{hai mẫu độc lập}, kiểm tra xem hai mẫu có cùng phân phối hay không.  
+    \item \textbf{Ý nghĩa:}  
+    \begin{itemize}
+        \item Thích hợp khi dữ liệu không chuẩn hoặc có ngoại lệ lớn.  
+        \item Ứng dụng cho dữ liệu định lượng hoặc thứ bậc để kiểm tra sự khác biệt về phân phối.  
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Kiểm định Wilcoxon Signed-Rank}  
+\begin{itemize}
+    \item \textbf{Định nghĩa:} Kiểm định phi tham số dùng để so sánh trung vị của \textbf{hai tập dữ liệu liên quan (cặp đôi)}, thay thế kiểm định tham số khi dữ liệu không tuân theo phân phối chuẩn.  
+    \item \textbf{Ý nghĩa:}  
+    \begin{itemize}
+        \item Kiểm tra sự khác biệt giữa hai tập dữ liệu liên quan.  
+        \item Thích hợp cho dữ liệu định lượng không chuẩn hoặc dữ liệu thứ bậc.  
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Phân tích hậu kiểm}
+\textbf{Post hoc test}: được sử dụng sau khi có kết quả có ý nghĩa thống kê để xác định sự khác biệt giữa các nhóm. Kiểm định \textbf{Bonferroni} là phương pháp đơn giản, điều chỉnh mức ý nghĩa \(\alpha\) bằng cách chia cho số lượng so sánh, giúp kiểm soát tỷ lệ lỗi loại I khi thực hiện các bài kiểm tra tính độc lập giữa các nhóm.
+

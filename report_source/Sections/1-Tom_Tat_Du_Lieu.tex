@@ -1,0 +1,38 @@
+\section{Tóm Tắt Dữ Liệu}
+
+\subsection{Ngữ cảnh}
+Bộ dữ liệu được sử dụng lấy từ Kaggle, mô phỏng các giao dịch bán lẻ tại một cửa hàng điện tử. Nó chứa thông tin chi tiết về đơn hàng, khách hàng, sản phẩm mua, và phản hồi của khách hàng.
+
+\subsection{Cách dữ liệu được thu thập}
+Bộ dữ liệu trên là tổng hợp những đơn hàng sản phẩm đã được thanh toán tại một cửa hàng điện tử. Nó đi kèm với ngày thanh toán, thông tin sản phẩm, và thông tin khách hàng.
+
+\subsection{Các loại biến và quan trắc}
+Nhóm đã tổng hợp lại được tổng cộng 1,000 giá trị quan trắc liên quan đến các giao dịch và 3 giá trị liên quan đến thông tin các kho hàng.
+
+Trong quá trình tổng hợp, các biến trong bộ dữ liệu được đưa ra như sau:
+\begin{itemize}
+    \item \textbf{Biến định tính (Categorical variables):}
+    \begin{itemize}
+        \item \texttt{order\_id}: Mã đơn hàng.
+        \item \texttt{customer\_id}: ID khách hàng.
+        \item \texttt{nearest\_warehouse}: Tên kho hàng gần nhất.
+        \item \texttt{season}: Mùa trong năm.
+        \item \texttt{latest\_customer\_review}: Nhận xét từ khách hàng.
+        
+    \end{itemize}
+    \item \textbf{Biến định lượng (Numerical variables):}
+    \begin{itemize}
+        \item \texttt{order\_price}: Giá trị đơn hàng trước khuyến mãi.
+        \item \texttt{delivery\_charges}: Phí giao hàng.
+        \item \texttt{coupon\_discount}: Giá trị khuyến mãi áp dụng.
+        \item \texttt{order\_total}: Giá trị đơn hàng sau khuyến mãi.
+        \item \texttt{customer\_lat} và \texttt{customer\_long}: Vĩ độ và kinh độ của khách hàng.
+        \item \texttt{distance\_to\_nearest\_warehouse}: Khoảng cách đến kho gần nhất.
+    \end{itemize}
+    \item \textbf{Biến Boolean:}
+    \begin{itemize}
+        \item \texttt{is\_expedited\_delivery}: Có giao hàng nhanh hay không.
+        \item \texttt{is\_happy\_customer}: Khách hàng hài lòng hay không.
+    \end{itemize}
+\end{itemize}
+\raggedbottom
