@@ -1,7 +1,7 @@
 # 3.Tiền xử lý dữ liệu
 # 3.1 Ghép dữ liệu
 # Load thư viện sử dụng và nối hai file CSV lại
-required_packages <- c("this.path", "dplyr", "ggplot2", "lubridate", "geosphere", "readr", "corrplot", "faraway", "car", "ggthemes","gt","nortest","knitr","FSA","ggcorrplot","dunn.test","BSDA")
+required_packages <- c("this.path", "dplyr", "ggplot2", "lubridate", "geosphere", "readr", "corrplot", "faraway", "car", "ggthemes","gt","nortest","knitr","FSA","ggcorrplot","dunn.test","BSDA","writexl")
 for (p in required_packages) {
   if (!require(p, character.only = TRUE)) install.packages(p)
   library(p, character.only = TRUE)
@@ -58,6 +58,8 @@ merged_data$is_happy_customer[is.na(merged_data$is_happy_customer)] <- median_ha
 # 3.2.4 Sau khi làm sạch
 na_cout<- colSums(is.na(merged_data ))
 print(na_cout)
+# xuất ra file merged_data làm sạch
+write_xlsx(merged_data, path = "data/cleaned_merged_data.xlsx")
 
 # ------------------------------------------------
 # 4.1 Hiện thị các điểm ngoại lai (Outlier)
