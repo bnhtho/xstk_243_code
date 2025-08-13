@@ -5,7 +5,7 @@ required_packages <- c(
   "this.path", "dplyr", "ggplot2", "lubridate", "geosphere",
   "readr", "corrplot", "faraway", "car", "ggthemes", "gt",
   "nortest", "knitr", "FSA", "ggcorrplot", "dunn.test",
-  "BSDA", "writexl"
+  "BSDA", "writexl","webshot"
 )
 for (p in required_packages) {
   if (!require(p, character.only = TRUE)) install.packages(p)
@@ -214,3 +214,8 @@ ggplot(df_cleaned, aes(x = season, y = order_total_cleaned)) +
   theme_minimal() +
   labs(title = "So sánh Order Total giữa các mùa (ANOVA)")
 
+
+# Mở rộng: Dunn test
+# Krustal_wallis
+kruskal_result <- kruskal.test(order_price ~ season, data = merged_data)
+print(kruskal_result)
