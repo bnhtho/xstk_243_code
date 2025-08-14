@@ -66,6 +66,7 @@ write_xlsx(merged_data, "data/cleaned_merged_data.xlsx")
 ##################################################
 # 4. Phát hiện ngoại lai trước xử lý
 ##################################################
+
 # Boxplot order_price
 ggplot(data = merged_data, aes(y = order_price)) +
   geom_boxplot(outlier.shape = 16, outlier.colour = "red", outlier.fill = "red") +
@@ -199,23 +200,13 @@ print(t_test_result)
 # dùng phương pháp leveneTest trong R
 df_cleaned <- merged_data %>%
   group_by(season) %>%
-  mutate(order_total_cleaned = ifelse(order_total > quantile(order_total, 0.75) + 1.5 * IQR(order_total) |
-                                      order_total < quantile(order_total, 0.25) - 1.5 * IQR(order_total),
-                                      NA, order_total)) %>%
+  mutate(order_total_cleaned = ifelse(order_total > quantile(order_total, 0.75) + 1.5 * IQR(order_total) | order_total < quantile(order_total, 0.25) - 1.5 * IQR(order_total), NA, order_total)) %>%
   ungroup()
 
 leveneTest(order_total_cleaned ~ season, data = df_cleaned)
 anova_model <- aov(order_total_cleaned ~ season, data = df_cleaned)
 summary(anova_model)
 
-# Boxplot ANOVA
-ggplot(df_cleaned, aes(x = season, y = order_total_cleaned)) +
-  geom_boxplot() +
-  theme_minimal() +
-  labs(title = "So sánh Order Total giữa các mùa (ANOVA)")
-
-
-# Mở rộng: Dunn test
 # Krustal_wallis
 kruskal_result <- kruskal.test(order_price ~ season, data = merged_data)
 print(kruskal_result)
